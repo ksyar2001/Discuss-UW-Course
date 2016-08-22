@@ -16,6 +16,6 @@ function insertDivContent(){
   button.innerHTML = "Discussion";
 
   for (var i=0; i<div.length; i++){
-    div[i].appendChild(button);
+    div[i].appendChild(button.cloneNode(true));
   }
 }
