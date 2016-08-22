@@ -1,0 +1,17 @@
+{
+  "name": "Disqus",
+  "version": "1.0",
+  "manifest_version": 2,
+  "description": "Disqus",
+  "icons": {
+    "16": "assets/icon_16.png",
+    "128": "assets/icon_128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://my.wisc.edu/*"],
+      "js": ["main.js"],
+      "css": ["styles.css"]
+    }
+  ]
+}
