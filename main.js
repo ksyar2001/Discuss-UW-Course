@@ -6,7 +6,7 @@ if (document.readyState ==='complete'){
 
 
 function insertDivContent(){
-  log.info("Insertinf Div");
+  console.log("Inserting Div");
   table = document.querySelectorAll("table.CG_list.searchList")[0];
   div = table.getElementsByClassName("sectionExpandColumn");
   alert(div.length);
