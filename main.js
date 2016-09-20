@@ -1,3 +1,4 @@
+
 document.addEventListener("animationstart", insertDivContent, false);
 var disqus_shortname = 'uwcourse';
 var disqus_identifier;
