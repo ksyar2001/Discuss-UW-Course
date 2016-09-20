@@ -12,11 +12,11 @@ if (document.readyState ==='complete'){
 
 
 function insertDivContent(){
-  alert("HELLO");
+  alert("Debug: CSS animation started, Insterting div content...");
   //insertdisqus();
   table = document.querySelectorAll("table.CG_list.searchList")[0];
   div = table.getElementsByClassName("sectionExpandColumn");
-  alert(div.length);
+  alert("Number of boxes per page: " + div.length);
   
   var button = document.createElement("a");
   button.setAttribute("class", "sectionExpand hide collapsibleCriteria enabled");
@@ -49,17 +49,9 @@ function loaddisqus(e){
   subjectcode = next_element.attr('data-subjectcode');
   catalogcode = next_element.attr('data-catalognumber');
   
-  if (window.DISQUS) {
-    // Horrible, but jQuery wasn't removing the div elements fully
-    $( ".comments-load" ).each(function() {
-      var len = this.childNodes.length;
-      for(var i = 0; i < len; i++)
-      {  
-        if (this.childNodes[i].tagName == "DIV") {
-          this.removeChild(this.childNodes[i]);
-        } 
-      }
-    });
+  //console.log(disqus_config);
+  
+  if (typeof disqus_config !== "undefined") {
     
     DISQUS.reset({
       reload: true,
@@ -83,10 +75,10 @@ function loaddisqus(e){
     //dsq.async = true;
     //dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     //$('head').append(dsq);
-    //var disqus_config = function () {
-    //    this.page.url = disqus_url;  // Replace PAGE_URL with your page's canonical URL variable
-    //    this.page.identifier = catalogcode; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-    //};
+    disqus_config = function () {
+        this.page.url = disqus_url;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = catalogcode; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
     (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
         var d = document, s = d.createElement('script');
         
